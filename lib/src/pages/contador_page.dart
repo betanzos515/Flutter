@@ -34,16 +34,17 @@ class _ContadorPageState extends State <ContadorPage>{
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
+        SizedBox(width: 30),
         FloatingActionButton(child: Icon(Icons.restore), onPressed:(){
           setState(() {
              _conteo = 0;
           });
         }),
-        SizedBox(width: 200.0),
+        Expanded(child: SizedBox(width: 5.0)),
         FloatingActionButton(child: Icon(Icons.remove), onPressed:(){
           if(_conteo > 0){
             setState(() {
-              -_conteo--;
+              _conteo--;
             });
           }
           else{
