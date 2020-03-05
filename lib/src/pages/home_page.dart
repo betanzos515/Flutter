@@ -21,12 +21,6 @@ class Home_Page extends StatelessWidget{
             ],
         ),
       ),
-      floatingActionButton:FloatingActionButton(
-        child:Icon(Icons.add),
-        onPressed: (){
-          print('Hola Mundo');
-        },
-      ),
     );
   }
 

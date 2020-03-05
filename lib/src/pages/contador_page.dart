@@ -35,31 +35,41 @@ class _ContadorPageState extends State <ContadorPage>{
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         SizedBox(width: 30),
-        FloatingActionButton(child: Icon(Icons.restore), onPressed:(){
-          setState(() {
-             _conteo = 0;
-          });
-        }),
-        Expanded(child: SizedBox(width: 5.0)),
-        FloatingActionButton(child: Icon(Icons.remove), onPressed:(){
-          if(_conteo > 0){
+        FloatingActionButton(
+          child: Icon(Icons.restore),
+          onPressed:_resetear
+        ),
+        Expanded(child: SizedBox(width:0)),
+        FloatingActionButton(
+          child: Icon(Icons.remove),
+          onPressed:_disminuir
+        ),
+        SizedBox(width: 20.0),
+        FloatingActionButton(child: Icon(Icons.add), 
+        onPressed:_agregar
+        )
+      ],
+    );
+  }
+
+  void _agregar(){
+    setState(()=>_conteo++); 
+  }
+
+  void _disminuir(){
+    setState(() {
+      if(_conteo > 0){
             setState(() {
               _conteo--;
             });
-          }
-          else{
+      }
+      else{
             print('El contador ya esta en 0');
-          }
-        }),
-        SizedBox(width: 20.0),
-        FloatingActionButton(child: Icon(Icons.add), onPressed:(){
-          setState(() {
-            _conteo++;
-          });
-        })
-      ],
-    );
-    
-    
+      }
+    });
+  }
+
+  void _resetear(){
+    setState(()=> _conteo = 0);
   }
 }
